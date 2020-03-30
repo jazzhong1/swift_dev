@@ -13,6 +13,8 @@
 		641C1AA5242A391500234C7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 641C1AA3242A391500234C7F /* Main.storyboard */; };
 		641C1AA7242A391500234C7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 641C1AA6242A391500234C7F /* Assets.xcassets */; };
 		641C1AAA242A391500234C7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 641C1AA8242A391500234C7F /* LaunchScreen.storyboard */; };
+		641C1AB2242B810F00234C7F /* Type1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641C1AB1242B810F00234C7F /* Type1.swift */; };
+		644F041A2430E0DB003711BC /* NewsDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F04192430E0DB003711BC /* NewsDetailController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		641C1AA6242A391500234C7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		641C1AA9242A391500234C7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		641C1AAB242A391600234C7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		641C1AB1242B810F00234C7F /* Type1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type1.swift; sourceTree = "<group>"; };
+		644F04192430E0DB003711BC /* NewsDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				641C1AA6242A391500234C7F /* Assets.xcassets */,
 				641C1AA8242A391500234C7F /* LaunchScreen.storyboard */,
 				641C1AAB242A391600234C7F /* Info.plist */,
+				641C1AB1242B810F00234C7F /* Type1.swift */,
+				644F04192430E0DB003711BC /* NewsDetailController.swift */,
 			);
 			path = sentiTable;
 			sourceTree = "<group>";
@@ -139,6 +145,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				641C1AA2242A391500234C7F /* ViewController.swift in Sources */,
+				644F041A2430E0DB003711BC /* NewsDetailController.swift in Sources */,
+				641C1AB2242B810F00234C7F /* Type1.swift in Sources */,
 				641C1A9E242A391500234C7F /* AppDelegate.swift in Sources */,
 				641C1AA0242A391500234C7F /* SceneDelegate.swift in Sources */,
 			);
