@@ -105,6 +105,9 @@ print("unusualMenagerie has \(unusualMenagerie.count) characters")
 let greeting = "Guten Tag!";
 greeting[greeting.startIndex];
 // G
+//greeting[greeting.endIndex];
+//sring index is out of bounds 실제로는....\0문자열 끝을 가르킴...
+//
 greeting[greeting.index(before: greeting.endIndex)];
 // !
 greeting[greeting.index(after: greeting.startIndex)];
@@ -123,21 +126,32 @@ for index in greeting.indices {
 print();
 
 
+//stirng append Character....
 
-//문자의 삽입과 삭제
+//문자열의 삽입과 삭제
 //문자의 삽입과 삭제에는 insert(:at:), insert(contentOf:at:), remove(at:), removeSubrange(:)
 
 //주의
 //위 메소드들은 RangeReplaceableCollection 프로토콜을 따르는 Array, Dictionary, Set 등에서도 동일하게사용
 
 var welCome = "hello";
-welCome.insert("!", at: welCome.endIndex);
+//welCome.insert("!", at: welCome.endIndex);
+//print("check welcoam insert ! \(welcome)")
 //Character만 가능 welcome : hello!
 
-welCome.insert(contentsOf: "there", at: welCome.index(before: welCome.endIndex));
-//welcome 마지막 인덱스 전에 there를 넣어라?... ex) hellothere!
+welCome.insert(contentsOf: "there123", at: welCome.index(before: welCome.endIndex));
+//endIndex 자체가 문자열 끝을 가르킨다.
+//보통 마지막 문자열 인덱스 접근시 index.(before: XX.endIndex)를 이용하여 접근.
+print(welCome) //expect : hellthere123o
+
 let _index = welCome.index(welCome.startIndex, offsetBy: 5);
-welcome.remove(at: welcome.index(before: welcome.endIndex))
+print("check offsetBy \(welCome[_index])")//expect t.
+
+welCome.remove(at: welCome.index(before: welCome.endIndex))
+print("check welcome \(welCome)") //expect ...hellothere12
+
+
+welCome = "hellowtherre123"
 
 let range = welCome.index(welCome.endIndex, offsetBy: -6)..<welCome.endIndex;
 //-1,-2로 접근하면 index 에서 뒤로 가라는 말...
@@ -145,29 +159,22 @@ let range = welCome.index(welCome.endIndex, offsetBy: -6)..<welCome.endIndex;
 welCome.removeSubrange(range);
 
 
-
-
-
-
-
-
 //부분 문자열
 //문자열에서 부분문자열을 얻기 위해 prefix(_:) 와 같은 서브 스크립트 메소드를 이용 할 수 있는데
 //그렇게 얻은 부분 문자열은 문자열(String) 인스턴스가 아니라 부분문자열(SubString)인스턴스....
 //문자열 인스턴스로 바꿔서 사용 하는 것이 좋음.
 let greeting2 :String = "Hello, World";
-let index2 = greeting2.firstIndex(of:",") ?? greeting2.endIndex;
+let index2 = greeting2.firstIndex(of:",") ?? greeting2.index(before: greeting2.endIndex);//?인덱스가 있으면 반환, 없으면 ...마지막 인덱스반환
+print("check index2 \(greeting2[index2])") //expect ,
+
 //let index3 = greeting2.firstIndex(of: "e") ?? greeting2.endIndex;
 let beginning = greeting2[..<index2];
+print("check beginning \(beginning)") //expect hello
 // begining : hello
 
 //subString인 beginning을  String으로 변환
 //subString은 해당 문자를 직접 갖고 있는 것이 아니라 원본 String의 메모리를 참조해 사용.
-let newString = String(beginning);
-
-
-
-
+let newString = String(beginning); //메모리 시작점이 greeting2. index?
 
 //문자열과 문자비교
 let quotation2 = "We're a lot alike, you and I."
@@ -197,12 +204,6 @@ if latinCapitalLetterA != cyrillicCapitalLetterA {
 }
 // Prints "These two characters are not equivalent."
 
-
-
-
-
-
-
 //접두사 접미사 비교
 // 접두사 접미사 비교를 위해 hasPrefix(:), hasSuffix(:) 메소드를 사용 할 수 있다.
 let remeoAndJuliet = [
@@ -226,6 +227,15 @@ for scene in remeoAndJuliet{
 }
 print("There are \(actiSceneCount) scenes in Act 1");
 
+actiSceneCount = 0;
+for scene in remeoAndJuliet{
+    if (scene.hasSuffix("mansion")){
+        actiSceneCount += 1;
+    }
+}
+print("There are \(actiSceneCount) scenes in mansion");
+
+
 //접미어 Capulet's mansion 과 Friar Lawrences' cell 이 각각 몇개 들어 있는지 확인
 //string[]만 가능...한걸로...ㅎㅎ
 var mansionCount = 0;
@@ -247,6 +257,10 @@ print("\(mansionCount) mansion scenes; \(cellCount) cell scense");
 //유니코드 문자가 텍스트 파일이나 다른 저장소에 쓰여질 때 유니코드 스칼라는 UTF-8, UTF-16, UTF-32등 다양한
 //유니코드 인코딩 방식이 사용..
 let dogString:String = "Dog!!🐶";
+var binary : Data? =  nil
+
+binary = dogString.data(using: .utf8)
+
 for codeUnit in dogString.utf8{
     print(codeUnit,"",terminator: "")
 }

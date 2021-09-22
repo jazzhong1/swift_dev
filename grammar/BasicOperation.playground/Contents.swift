@@ -7,7 +7,7 @@ a = b;
 //print(a);
 
 let (x,y) = (1,2);
-//print(x,y);
+print(x,y);
 
 //Arithmetic Operators 사칙 연산자
 1 + 2;
@@ -45,7 +45,7 @@ if name == "world"{
     print(name+"is not equals");
 }
 (1, "zebra") < (2, "apple");
-(3, "apple") < (3, "bird");
+(3, "apple") < (3, "aa");
 (4, "dog") == (4, "dog");
 
 ("blue", -1) < ("purple", 1);
@@ -159,5 +159,22 @@ if enterDoorCode && passedRetinaScan || hasDoorKey || knowsOverridePassword{
 }*/
 
 
+/*
+ Any Swift 모든 어떤 타입도 수용가능
+ anytype 에 nil 은 넣어 줄 수 없다
+ */
+var someAny: Any = 100
+someAny = "어떤 타입도 수용가능";
+someAny = 123.12
+
+//let someDouble: Double = someAny double에 캐스팅 불가
+
+//MARK: - AnyObject
+class SomeClass{}
+var someAnyObj: AnyObject = SomeClass()
+//string, int double 모두 구조체로 되어있음..
+//someAnyObj = 123.12 //불가..
+
+//someAnyObj = nil
 
 
